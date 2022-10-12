@@ -29,8 +29,27 @@ for mat=1:3
     for i=1:nvects
         quiver(Av(1,i),Av(2,i),[':' colors(i)],'LineWidth',2);
     end
+    [eigv,eigV]=eigs(As{mat})
 end
 
+
+%% Problem 3
+clc, clear;
+As = cell(3,1);
+As{1} = [8,-8,-2;
+        4,-3,-2;
+        3,-4,1];
+As{2} = [1,0,-4;
+    0,3,0;
+    -2,0,-1];
+As{3} = [2,1,1;
+    0,3,1;
+    0,-1,1];
+for mat = 1:3
+    [eigv,geigV] = eigs(As{mat})
+    [Jordan] = jordan(As{mat})
+    
+end
 
 %% Problem 5
 clc, clear;
