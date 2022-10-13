@@ -9,7 +9,7 @@ As{3} = [1,-1;2,-1];
 
 figure();
 hold on;
-colors = ['r' 'g' 'b' 'c' 'm' 'y']
+colors = ['r' 'g' 'b' 'c' 'm' 'y'];
 nvects = length(colors);
 vects = zeros(2,nvects);
 for i=1:nvects
@@ -19,15 +19,14 @@ end
 for mat=1:3
     subplot(1,3,mat);
     hold on;
-    title(['Plot of A_(' mat ')'])
+    title(['Plot of A ' num2str(mat)])
     A = As{mat};
-    vects(:,i)
     for i=1:nvects
-        quiver(vects(1,i),vects(2,i),colors(i),'LineWidth',2);
+        quiver(0,0,vects(1,i),vects(2,i),colors(i),'LineWidth',2);
     end
     Av = A*vects;
     for i=1:nvects
-        quiver(Av(1,i),Av(2,i),[':' colors(i)],'LineWidth',2);
+        quiver(0,0,Av(1,i),Av(2,i),[':' colors(i)],'LineWidth',2);
     end
     [eigv,eigV]=eigs(As{mat})
 end
