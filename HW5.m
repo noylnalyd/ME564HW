@@ -45,12 +45,13 @@ As{3} = [2,1,1;
     0,3,1;
     0,-1,1];
 for mat = 1:3
-    [eigv,geigV] = eigs(As{mat})
+    disp("Problem 3 Matrix " + mat)
+    [geigv,eigV] = eigs(As{mat})
     [Jordan] = jordan(As{mat})
     
 end
 
-%% Problem 5
+%% Problem 6
 clc, clear;
 A = [2,1;1,-8];
 
@@ -85,3 +86,25 @@ end
 d = (W'^-1)*D*(W')
 
 e = expm(A)
+%% Problem 8 new
+l1 = -1;
+l2 = 5;
+
+dif = exp(l2) - exp(l1);
+tot = exp(l2) + exp(l1);
+c1 = dif/(l2-l1)
+c0 = exp(l1)-c1*l1
+
+%% Problem 9 new
+c1 = -sin(1)*sin(2)
+c0 = cos(2)*cos(1)-2*c1
+A = [2 1;-1 2];
+cA = c1*A+c0*eye(2)
+
+%% Problem 10 new
+A = [2 1 0 0 0;
+    0 2 1 0 0;
+    0 0 2 0 0;
+    0 0 0 2 1;
+    0 0 0 0 1];
+A = jordan(A)
