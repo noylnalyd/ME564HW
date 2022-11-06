@@ -1,38 +1,17 @@
 %% Problem 4
 clc, clear
-A = [.3536 0 0.25 -.25;
-    0 -1.4142 -1 -1;
-    0.6124 0 0.433 -0.433];
+syms t;
+A = [-4/t, -2/t/t;...
+        1, 0];
+phi1 = [1/t/t; -1/t];
+phi2 = [2/t/t/t; -1/t/t];
+[eigv,eigs] = eig(A)
+%% Problem 7
+clc, clear
 
-V1 = orth(A')
-V2 = null(A)
+A = [-2, 0; 0 0];
 
-V = [V1,V2];
-
-s2 = V^-1 * A' * A * V
-
-check = A'*A- ...
-    V*s2*V^-1
-
-sinv = zeros(3,2);
-for i=1:2
-    sinv(i,i) = 1/sqrt(s2(i,i));
-end
-
-U1 = A*V1*sinv
-U2 = null(U1')
-U = [U1,U2]
-
-sigmainv = zeros(3,2);
-sigma = zeros(3,4);
-for i=1:2
-    sigma(i,i) = sqrt(s2(i,i))
-    sigmainv(i,i) = 1/sigma(i,i);
-end
-
-b = ones(3,1);
-x = V1*sigmainv*U1'*b
-A*x-b
+[eigv,eigs] = eig(A)
 %% Problem 2
 clc, clear all
 A = [0.0974 -0.1178 0.7876 -0.1168 0.0178;
