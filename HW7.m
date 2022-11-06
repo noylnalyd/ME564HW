@@ -1,4 +1,4 @@
-%% Problem 1
+%% Problem 4
 clc, clear
 A = [.3536 0 0.25 -.25;
     0 -1.4142 -1 -1;
